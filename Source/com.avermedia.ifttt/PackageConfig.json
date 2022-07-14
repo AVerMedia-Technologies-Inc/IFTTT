@@ -1,0 +1,41 @@
+{
+    "Author": "AVerMedia",
+    "Description": "IFTTT Webhooks widget",
+    "Name": "IFTTT",
+    "UUID": "com.avermedia.ifttt",
+    "Icon": "images/mainpage_btn_plugin_ifttt.svg",
+    "URL": "https://www.avermedia.com/gaming/creatorcentral",
+    "Version": "0.1.0",
+    "Runtime": {
+        "mac": {
+            "type": "web",
+            "target": "widget.html",
+            "MinimumVersion": "11.0"
+        },
+        "win": {
+            "type": "web",
+            "target": "widget.html",
+            "MinimumVersion": "11.0"
+        }
+    },
+    "CreatorCentral": {
+        "MinimumVersion": "1.2",
+        "SDKVersion": 2
+    },
+    "Widgets": [
+        {
+            "Name": "IFTTT",
+            "Icon": "images/mainpage_btn_plugin_ifttt.svg",
+            "Tooltip": "IFTTT Webhooks",
+            "UUID": "com.avermedia.ifttt.webhooks2",
+            "PropertyViewPath": "property.html",
+            "States": [
+                {
+                    "Image": "images/mainpage_btn_plugin_ifttt.svg",
+                    "Title": "IFTTT"
+                }
+            ]
+        }
+    ]
+}
+

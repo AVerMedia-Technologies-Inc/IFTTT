@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head style="margin: 0;padding: 0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFTTT Webhooks Widget</title>
+    <script src="js/ax_websocket.js"></script>
+    <script src="js/ax_widget.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/sockjs.min.js"></script>
+</head>
+<body style="margin: 0;padding: 0">
+    <input type="hidden" id="hueAppId" value="" />
+    <input type="hidden" id="bridgeList" value="" />
+    <input type="hidden" id="lightState" value="" />
+    <canvas id="canvas" width=150 height=108></canvas>
+    <pre id="json"></pre>
+    <script src="js/http_req.js"></script>
+    <script src="js/main_widget.js"></script>
+</body>
+</html>
