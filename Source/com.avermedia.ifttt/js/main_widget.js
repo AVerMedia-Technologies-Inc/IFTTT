@@ -39,7 +39,7 @@ function drawWidgetImage(ready, callback) {
                 context.drawImage(invalid, 0, 0, canvas.width, canvas.height);
                 callback(canvas.toDataURL('image/png', 1));
             }
-            invalid.src = "images/mainpage_btn_invaild.svg";
+            invalid.src = "images/disabled.png";
         } else {
             callback(canvas.toDataURL('image/png', 1));
         }

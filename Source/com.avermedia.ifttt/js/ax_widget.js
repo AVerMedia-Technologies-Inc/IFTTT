@@ -74,29 +74,29 @@ AVT_CREATOR_CENTRAL.on('propertyViewDidDisappear', data => {
  * When the user presses a display view on the panel or a function key of AX devices, 
  * the package will receive the keyDown event.
  */
-AVT_CREATOR_CENTRAL.on('keyDown', data => {
+AVT_CREATOR_CENTRAL.on('actionDown', data => {
     let widget = data["widget"];
     let uuid = data["context"];
     let state = data["payload"]["state"] != null ? data["payload"]["state"] : -1;
-    AVT_CREATOR_CENTRAL_API_V2.onWidgetKeyDown(widget, uuid, state);
+    AVT_CREATOR_CENTRAL_API_V2.onWidgetActionDown(widget, uuid, state);
 });
 
 /**
  * When the user releases a display view on the panel or a function key of AX devices, 
  * the package will receive the keyUp event.
  */
-AVT_CREATOR_CENTRAL.on('keyUp', data => {
+AVT_CREATOR_CENTRAL.on('actionUp', data => {
     let widget = data["widget"];
     let uuid = data["context"];
     let state = data["payload"]["state"] != null ? data["payload"]["state"] : -1;
-    AVT_CREATOR_CENTRAL_API_V2.onWidgetKeyUp(widget, uuid, state);
+    AVT_CREATOR_CENTRAL_API_V2.onWidgetActionUp(widget, uuid, state);
 });
 
 /**
  * When the user presses a display view and then releases within it, the package 
  * will receive the widgetTriggered event.
  */
-AVT_CREATOR_CENTRAL.on('widgetTriggered', data => {
+AVT_CREATOR_CENTRAL.on('actionTriggered', data => {
     let widget = data["widget"];
     let uuid = data["context"];
     let state = data["payload"]["state"] != null ? data["payload"]["state"] : -1;
@@ -109,7 +109,6 @@ AVT_CREATOR_CENTRAL.on('widgetTriggered', data => {
 AVT_CREATOR_CENTRAL.on('sendToPackage', data => {
     let widget = data["widget"];
     let uuid = data["context"];
-    let playload = data["payload"];
-    AVT_CREATOR_CENTRAL_API_V2.onPackageMessage(widget, uuid, playload);
+    let payload = data["payload"];
+    AVT_CREATOR_CENTRAL_API_V2.onPackageMessage(widget, uuid, payload);
 });
-

@@ -28,7 +28,7 @@ function HttpReq(timeout = 3000) {
         xmlHttp.send();
     }
     
-    this.put = (url, body, callback) => {
+    this.post = (url, body, callback) => {
         _callback = callback;
         xmlHttp.open("POST", url, true);
         xmlHttp.setRequestHeader("Content-Type", "application/json");
@@ -42,4 +42,3 @@ function HttpReq(timeout = 3000) {
         xmlHttp.send(JSON.stringify(body));
     }
 }
-

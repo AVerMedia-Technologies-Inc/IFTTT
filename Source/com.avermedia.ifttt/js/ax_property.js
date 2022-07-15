@@ -36,4 +36,3 @@ AVT_CREATOR_CENTRAL.on('sendToPropertyView', data => {
     let payload = data["payload"];
     AVT_CREATOR_CENTRAL_API_V2.onPropertyMessage(widget, uuid, payload);
 });
-
