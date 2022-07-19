@@ -19,6 +19,7 @@ const sendDebugLog = AVT_CREATOR_CENTRAL_API_V2.sendDebugLog;
  * The following events is additional to property view
  */
 const sendToPackage = AVT_CREATOR_CENTRAL_API_V2.sendToPackage;
+const openUrl = AVT_CREATOR_CENTRAL_API_V2.openUrl;
 
 /**
  * Creator Central entry point

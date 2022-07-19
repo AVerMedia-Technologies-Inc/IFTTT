@@ -22,25 +22,30 @@ function isWidgetClickable(config) {
 function drawWidgetImage(ready, callback) {
     const canvas = document.getElementById('canvas');
     const context = canvas.getContext("2d");
-    context.textAlign = "center"; 
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    //context.fillStyle = "#000000";
+    //context.fillRect(0, 0, canvas.width, canvas.height);
+
+    context.textAlign = "center";
     context.textBaseline = "middle";
-    context.fillRect(0, 0, canvas.width, canvas.height);
     context.font = "28px sans-serif"
     context.fillStyle = "#fefefe";
     
     let img = new Image();
     img.onload = function() {
-        context.drawImage(img, 0, 0, canvas.width, canvas.height);
-        context.fillText("IFTTT", canvas.width / 2, canvas.height - 24);
-        
         if (!ready) { // draw invalid icon over image
             var invalid = new Image();
             invalid.onload = function() {
+                context.drawImage(img, 0, 0, canvas.width, canvas.height);
+                context.fillText("IFTTT", canvas.width / 2, canvas.height - 24);
                 context.drawImage(invalid, 0, 0, canvas.width, canvas.height);
                 callback(canvas.toDataURL('image/png', 1));
             }
             invalid.src = "images/disabled.png";
         } else {
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+            context.fillText("IFTTT", canvas.width / 2, canvas.height - 24);
             callback(canvas.toDataURL('image/png', 1));
         }
     }

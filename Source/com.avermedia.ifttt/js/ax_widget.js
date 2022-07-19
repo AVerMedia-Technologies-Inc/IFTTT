@@ -22,6 +22,7 @@ const changeWidgetTitle = AVT_CREATOR_CENTRAL_API_V2.changeWidgetTitle;
 const changeWidgetImage = AVT_CREATOR_CENTRAL_API_V2.changeWidgetImage;
 const changeWidgetState = AVT_CREATOR_CENTRAL_API_V2.changeWidgetState;
 const sendToPropertyView = AVT_CREATOR_CENTRAL_API_V2.sendToPropertyView;
+//const openUrl = AVT_CREATOR_CENTRAL_API_V2.openUrl;
 
 /**
  * Creator Central entry point

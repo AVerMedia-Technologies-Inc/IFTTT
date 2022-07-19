@@ -44,11 +44,11 @@ function saveWidgetSettings() {
 
 $(document).ready(function(){
     $("#iftttApplet").click(function() {
-        window.alert("Create new Applet"); // FIXME: open browser
+        openUrl("https://ifttt.com/create/if-receive-a-web-request?sid=2");
     });
 
     $("#userGuide").click(function() {
-        window.alert("Open user guide"); // FIXME: open browser
+        openUrl("https://github.com/AVerMedia-Technologies-Inc/IFTTT");
     });
 
     $('#makerKey').on('input',function(e){

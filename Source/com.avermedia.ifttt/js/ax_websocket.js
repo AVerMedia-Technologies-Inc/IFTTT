@@ -95,6 +95,10 @@ const AVT_CREATOR_CENTRAL_API_V2 = {
     sendToPackage: (widget, payload) => {
         AVT_CREATOR_CENTRAL_API_V2.send('sendToPackage', payload, widget);
     },
+    openUrl: (url) => {
+        let payload = {"url": url};
+        AVT_CREATOR_CENTRAL_API_V2.send('openUrl', payload);
+    },
     sendDebugLog: (message) => {
         let payload = {"message": message};
         AVT_CREATOR_CENTRAL_API_V2.send('sendLog', payload);
