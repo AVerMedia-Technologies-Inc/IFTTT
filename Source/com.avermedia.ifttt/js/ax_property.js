@@ -11,14 +11,10 @@
  * The package and Property View can send following events to Creator Central application
  */
 const setWidgetSettings = AVT_CREATOR_CENTRAL_API_V2.setWidgetSettings;
-const getWidgetSettings = AVT_CREATOR_CENTRAL_API_V2.getWidgetSettings;
 const setPackageSettings = AVT_CREATOR_CENTRAL_API_V2.setPackageSettings;
-const getPackageSettings = AVT_CREATOR_CENTRAL_API_V2.getPackageSettings;
-const sendDebugLog = AVT_CREATOR_CENTRAL_API_V2.sendDebugLog;
 /**
  * The following events is additional to property view
  */
-const sendToPackage = AVT_CREATOR_CENTRAL_API_V2.sendToPackage;
 const openUrl = AVT_CREATOR_CENTRAL_API_V2.openUrl;
 
 /**

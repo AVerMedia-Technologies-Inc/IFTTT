@@ -11,7 +11,7 @@ Add IFTTT Webhooks widgets to your Creator Central.
 - [繁體中文](Release/Guide_zh-TW.md)
 
 ### Installation
-- Download [our prebuilt package](Release/com.avermedia.ifttt.creatorCentral) and use Creator Central Widget Import feature
+- Download [our prebuilt package](Release/IFTTT.creatorCentral) and use Creator Central Widget Import feature
 
 ### License
 Copyright 2021-2022 AVerMedia Technologies Inc. and respective authors and developers.

@@ -67,9 +67,6 @@ const AVT_CREATOR_CENTRAL_API_V2 = {
     setWidgetSettings: function(widget, uuid, payload) {
         AVT_CREATOR_CENTRAL_API_V2.send('setWidgetSettings', payload, widget, uuid);
     },
-    getWidgetSettings: function(widget, uuid) {
-        AVT_CREATOR_CENTRAL_API_V2.send('getWidgetSettings', null, widget, uuid);
-    },
     setPackageSettings: function(pkg, payload) {
         let settings = {"settings":payload};
         AVT_CREATOR_CENTRAL_API_V2.send('setPackageSettings', settings, null, pkg);
@@ -77,17 +74,18 @@ const AVT_CREATOR_CENTRAL_API_V2 = {
     getPackageSettings: function() {
         AVT_CREATOR_CENTRAL_API_V2.send('getPackageSettings');
     },
-    changeWidgetTitle: function(widget, uuid, title) {
-        let payload = {"title": title};
-        AVT_CREATOR_CENTRAL_API_V2.send('changeTitle', payload, widget, uuid);
+    changeActionEffect: (widget, uuid, effect, image) => {
+        let payload = { "type": effect };
+        if (image != null) payload["image"] = image;
+        AVT_CREATOR_CENTRAL_API_V2.send('changeActionEffect', payload, widget, uuid);
     },
-    changeWidgetImage: function (widget, uuid, image) {
-        let payload = {"image": image};
-        AVT_CREATOR_CENTRAL_API_V2.send('changeImage', payload, widget, uuid);
+    setWidgetEnabled: (widget, uuid, enabled) => {
+        //console.log(`[${widget}][${uuid}] setWidgetEnabled: ${enabled}`);
+        AVT_CREATOR_CENTRAL_API_V2.changeActionEffect(widget, uuid, enabled ? "clear" : "invalid");
     },
-    changeWidgetState: (widget, uuid, state) => {
-        let payload = {"state": state};
-        AVT_CREATOR_CENTRAL_API_V2.send('changeState', payload, widget, uuid);
+    setWidgetPressed: (widget, uuid, pressed) => {
+        //console.log(`[${widget}][${uuid}] setWidgetPressed: ${pressed}`);
+        AVT_CREATOR_CENTRAL_API_V2.changeActionEffect(widget, uuid, pressed ? "press" : "clear");
     },
     sendToPropertyView: (widget, uuid, payload) => {
         AVT_CREATOR_CENTRAL_API_V2.send('sendToPropertyView', payload, widget, uuid);
@@ -98,10 +96,6 @@ const AVT_CREATOR_CENTRAL_API_V2 = {
     openUrl: (url) => {
         let payload = {"url": url};
         AVT_CREATOR_CENTRAL_API_V2.send('openUrl', payload);
-    },
-    sendDebugLog: (message) => {
-        let payload = {"message": message};
-        AVT_CREATOR_CENTRAL_API_V2.send('sendLog', payload);
     },
     
     // below are callbacks waiting to be implemented
@@ -116,12 +110,6 @@ const AVT_CREATOR_CENTRAL_API_V2 = {
     },
     onWidgetStop: (widget, uuid, state) => {
         console.log(`[widget] stop: ${widget}(${uuid}) (state=${state})`);
-    },
-    onPropertyStart: (widget, uuid) => {
-        console.log(`[property] start: ${widget}(${uuid})`);
-    },
-    onPropertyStop: (widget, uuid) => {
-        console.log(`[property] stop: ${widget}(${uuid})`);
     },
     onWidgetActionDown: (widget, uuid, state) => {
         console.log(`DOWN ${widget}(${uuid})(state=${state})`);
