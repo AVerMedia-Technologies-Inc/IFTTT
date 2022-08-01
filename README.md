@@ -3,6 +3,8 @@
 	<img src="Release/IFTTT_Webhooks_widget_preview.png" style="zoom:80%"/>
 </div>
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/AVerMedia-Technologies-Inc/IFTTT)
+
 ### Description
 Add IFTTT Webhooks widgets to your Creator Central.
 

@@ -5,7 +5,7 @@
     "UUID": "com.avermedia.ifttt",
     "Icon": "images/mainpage_btn_plugin_ifttt.svg",
     "URL": "https://www.avermedia.com/gaming/creatorcentral",
-    "Version": "1.0.1.0",
+    "Version": "1.0.2.0",
     "Runtime": {
         "mac": {
             "type": "web",
@@ -15,11 +15,11 @@
         "win": {
             "type": "web",
             "target": "package.html",
-            "MinimumVersion": "11.0"
+            "MinimumVersion": "10"
         }
     },
     "CreatorCentral": {
-        "MinimumVersion": "1.1.2.3",
+        "MinimumVersion": "1.1.2.4",
         "SDKVersion": 2
     },
     "Widgets": [
@@ -38,4 +38,3 @@
         }
     ]
 }
-

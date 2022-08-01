@@ -150,6 +150,7 @@ AVT_CREATOR_CENTRAL = (function() {
         let inPort, inUuid, inEvent, inPackageInfo, inWidgetInfo;
         let websocket = null;
         let events = new EventEmitter();
+        let timer = 0; // AME-4552
 
         function connect(port, uuid, event, info, widgetInfo) {
             inPort = port;
@@ -161,6 +162,8 @@ AVT_CREATOR_CENTRAL = (function() {
             websocket = new WebSocket(`ws://localhost:${inPort}`);
 
             websocket.onopen = function() {
+                if (timer != 0) clearTimeout(timer); // clear timeout when connected
+
                 let json = {
                     event : inEvent,
                     uuid: inUuid
@@ -185,6 +188,9 @@ AVT_CREATOR_CENTRAL = (function() {
 
             websocket.onclose = function(evt) {
                 console.warn('error', evt); // Websocket is closed
+                delete websocket;
+                websocket = null;
+                timer = setTimeout(reconnect, 5000); // set reconnection check
             };
 
             websocket.onmessage = function(evt) {
@@ -193,6 +199,13 @@ AVT_CREATOR_CENTRAL = (function() {
                     events.emit(jsonObj.event, jsonObj);
                 }
             };
+        }
+
+        // AME-4552, not a good solution. FIXME: use event trigger, not polling.
+        function reconnect() {
+            timer = setTimeout(reconnect, 5000); // add another timeout check
+            console.log(`try to reconnect WebSocket (${timer})`);
+            return connect(inPort, inUuid, inEvent, inPackageInfo, inWidgetInfo); // connect again
         }
 
         return {
