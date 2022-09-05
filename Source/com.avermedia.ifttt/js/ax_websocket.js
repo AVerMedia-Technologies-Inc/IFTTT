@@ -184,6 +184,9 @@ AVT_CREATOR_CENTRAL = (function() {
 
             websocket.onerror = function(evt) {
                 console.warn('WEBSOCKET ERROR', evt, evt.data);
+                delete websocket;
+                websocket = null;
+                timer = setTimeout(reconnect, 5000); // set reconnection check
             };
 
             websocket.onclose = function(evt) {
@@ -205,6 +208,7 @@ AVT_CREATOR_CENTRAL = (function() {
         function reconnect() {
             timer = setTimeout(reconnect, 5000); // add another timeout check
             console.log(`try to reconnect WebSocket (${timer})`);
+            console.log(`  port=${inPort}, uuid=${inUuid}`, inPackageInfo, inWidgetInfo);
             return connect(inPort, inUuid, inEvent, inPackageInfo, inWidgetInfo); // connect again
         }
 
@@ -246,8 +250,8 @@ AVT_CREATOR_CENTRAL.on('didReceiveWidgetSettings', data => {
  */
 AVT_CREATOR_CENTRAL.on('didReceivePackageSettings', data => {
     let payload = {};
-    if (data["payload"] != null && data["payload"]["settings"] != null) {
-        payload = data["payload"]["settings"];
+    if (data["payload"] != null) { // AME-4628: seems to be format changed
+        payload = data["payload"];
     } 
     AVT_CREATOR_CENTRAL_API_V2.onPackageSettings(payload);
 });

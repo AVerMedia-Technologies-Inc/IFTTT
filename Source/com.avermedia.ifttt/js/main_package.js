@@ -51,7 +51,9 @@ AVT_CREATOR_CENTRAL_API_V2.onWidgetSettings = function(widget, uuid, payload) {
     configData[uuid] = payload; // cache the settings for future use
     configData[uuid].widget = widget; // pass widget name in json
     configData[uuid]["pressed"] = false; // set default not pressed
-    refreshWidgetUi(uuid, configData[uuid]); // refresh widget if necessary
+	setTimeout(()=> {
+        refreshWidgetUi(uuid, configData[uuid]); // refresh widget if necessary
+	}, 200);
 }
 
 AVT_CREATOR_CENTRAL_API_V2.onPackageMessage = function(widget, uuid, payload) {
