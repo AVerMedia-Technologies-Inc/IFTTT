@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IFTTT Webhooks Property</title>
     <link rel="stylesheet" href="css/avt.css">
+    <script src="js/localization.js"></script>
     <style>
         .goto {
             -webkit-appearance: none;
@@ -38,21 +39,21 @@
 <body oncontextmenu="return false;">
     <div class="avt-wrapper">
         <div class="avt-item" >
-            <div class="avt-item-label">Maker Key</div>
+            <div class="avt-item-label LAB_IFTTT_MAKER_KEY">Maker Key</div>
             <div class="output_wrap">
                 <input type="text" id="makerKey" value="" placeholder="Enter your IFTTT Maker Key" />
             </div>
-            <div class="avt-item-label">Event Name</div>
+            <div class="avt-item-label LAB_IFTTT_EVENT_NAME">Event Name</div>
             <div class="output_wrap">
                 <input type="text" id="eventName" value="" placeholder="Enter the Event Name to be fired" />
             </div>
             <div class="output_wrap tooltip">
-                <span class="avt-item-value-helper extra">Create new Applet</span>
+                <span class="avt-item-value-helper extra LAB_IFTTT_CREATE_NEW_APPLET">Create new Applet</span>
                 <span id="iftttApplet" class="goto avt-item-value"></span>
                 <!--<img id="iftttApplet" src="images/component_btn_goto_block_b_n.svg" alt="" />-->
             </div>
             <div class="output_wrap tooltip">
-                <span class="avt-item-value-helper extra">Follow the guide</span>
+                <span class="avt-item-value-helper extra LAB_IFTTT_LOGIN_STEP">Follow the guide</span>
                 <span id="userGuide" class="goto avt-item-value"></span>
                 <!--<img id="userGuide" src="images/component_btn_goto_block_b_n.svg" alt="" />-->
             </div>

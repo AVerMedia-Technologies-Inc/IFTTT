@@ -9,8 +9,7 @@
 Add IFTTT Webhooks widgets to your Creator Central.
 
 ### Guide
-- [English](Release/Guide_en-US.md)
-- [繁體中文](Release/Guide_zh-TW.md)
+- [IFTTT User Guide](https://nexus.avermedia.com/cdn/media/ifttt_howto.html)
 
 ### Installation
 - Download [our prebuilt package](Release/IFTTT.creatorCentral) and use Creator Central Widget Import feature

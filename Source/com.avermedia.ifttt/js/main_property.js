@@ -8,10 +8,17 @@
  */
 let widgetUuid = "";
 let widgetName = "";
+let i18n = {};
 
-AVT_CREATOR_CENTRAL_API_V2.onAppConnected = function(port, uuid, widgetInfo) {
+AVT_CREATOR_CENTRAL_API_V2.onAppConnected = function(port, uuid, appInfo, widgetInfo) {
     widgetUuid = widgetInfo["context"];
     widgetName = widgetInfo["widget"];
+    i18n = SUPPORT_LANG_STRING[appInfo.language];
+    for (let k in i18n) {
+        $('.' + k).text(i18n[k]);
+    }
+    $("#makerKey").attr("placeholder", i18n["LAB_IFTTT_MAKER_KEY_INFO"]);
+    $("#eventName").attr("placeholder", i18n["LAB_IFTTT_EVENT_NAME_INFO"]);
 }
 
 AVT_CREATOR_CENTRAL_API_V2.onPropertyMessage = function(widget, uuid, payload) {
@@ -48,7 +55,7 @@ $(document).ready(function(){
     });
 
     $("#userGuide").click(function() {
-        openUrl("https://github.com/AVerMedia-Technologies-Inc/IFTTT");
+        openUrl("https://nexus.avermedia.com/cdn/media/ifttt_howto.html");
     });
 
     $('#makerKey').on('input',function(e){
